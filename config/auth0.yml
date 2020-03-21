@@ -1,0 +1,7 @@
+production:
+  url: ???
+  audience: ???
+
+development:
+  url: https://dev-precisely.auth0.com
+  audience: precisely-backend-api
