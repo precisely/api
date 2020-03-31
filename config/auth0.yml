@@ -3,5 +3,5 @@ production:
   audience: ???
 
 development:
-  url: https://dev-precisely.auth0.com
+  domain: dev-precisely.auth0.com
   audience: precisely-backend-api
