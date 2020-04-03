@@ -27,8 +27,9 @@ module Secured
     JsonWebToken.verify(http_token)
   end
 
+  # TODO: Get these right.
   SCOPES = [
-    ['^/admin', ['admin:read', 'admin:write']],
+    ['^/admin', ['root']],
     ['^/lab', ['lab:read', 'lab:append']],
     ['^/physician/', ['physician:read', 'physician:append']],
     ['^/user/', ['all:read']],
