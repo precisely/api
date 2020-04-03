@@ -1,7 +1,11 @@
 production:
-  url: ???
-  audience: ???
+  backend_api:
+    url: ???
+    audience: ???
 
 development:
-  domain: dev-precisely.auth0.com
-  audience: precisely-backend-api
+  backend_api:
+    domain: dev-precisely.auth0.com
+    audience: precisely-backend-api
+  frontend_simple:
+    domain: dev-precisely.auth0.com
