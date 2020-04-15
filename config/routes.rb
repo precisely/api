@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   post 'login', controller: 'login'
-  post 'logout', controller: 'logout'
+  post 'logout', controller: 'login'
+  post 'signup', controller: 'login'
+  post 'reset_password', controller: 'login'
 
   get 'public', controller: 'public'
   get 'private', controller: 'private'
