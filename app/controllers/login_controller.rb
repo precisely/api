@@ -28,9 +28,9 @@ class LoginController < ActionController::API
     render json: resp
   end
 
-  # XXX: There is no direct "change password" available in Auth0 API! There's
-  # only a reset flow which sends an email with a link. The documentation for
-  # the library's change_password method is wrong.
+  # XXX: There is no direct "change password" available in Auth0 authentication
+  # API! There's only a reset flow which sends an email with a link. The
+  # documentation for the library's change_password method is wrong.
   def reset_password
     resp = Auth0App.instance.change_password(
       params[:email],
@@ -40,6 +40,12 @@ class LoginController < ActionController::API
     # failure response is json (eg 400): {error}
     # FIXME: Return a reasonable status here.
     render {status: "ok"}
+  end
+
+  def change_password
+    # TODO: Implement this.
+    # A management API token is required (https://auth0.com/docs/api/management/v2/tokens).
+    # There's a management API function which should work: Auth0::Api::V2::Users::patch_user.
   end
 
 end
