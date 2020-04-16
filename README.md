@@ -26,6 +26,7 @@ You need the credentials key files. Ask CV if you do not already where to find t
 
 ## Development
 
+- Install Bundler: (from the project directory!) `gem install bundler`
 - Install dependencies: `bundle install`
 - Rails server: `rails server`
 - Rails console: `rails console`
