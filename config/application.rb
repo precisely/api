@@ -36,5 +36,12 @@ module AppBackend
 
     # load application-specific configuration files
     config.auth0 = config_for(:auth0)
+
+    # Enable multiple databases https://guides.rubyonrails.org/active_record_multiple_databases.html
+    # This seems to be mainly for switching to replicas, so commenting out for now.
+    # config.active_record.database_selector = { delay: 2.seconds }
+    # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
+    # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
   end
 end
