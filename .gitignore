@@ -27,3 +27,4 @@
 # Ignore credentials keys.
 /config/master.key
 /config/credentials/*.key
+.vscode
