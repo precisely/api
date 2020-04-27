@@ -10,6 +10,9 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
+# Use postgres as the database for Active Record
+# gem 'pg', '~>1.2'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -28,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# Gem for enabling Rails API mode for Devise
+gem 'devise', '~> 4.7'
 
 ### application gems
 ### ------------------------------------------------------------------------
