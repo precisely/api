@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :user
   resources :users
+  root to: "home#index"
   post 'login', controller: 'login'
   post 'logout', controller: 'login'
   post 'signup', controller: 'login'
