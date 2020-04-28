@@ -12,6 +12,7 @@ require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
+require "rack/cors"
 # require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
@@ -35,8 +36,20 @@ module AppBackend
     config.api_only = true
 
     # load application-specific configuration files
-    config.auth0 = config_for(:auth0)
+    # config.auth0 = config_for(:auth0)
 
+    # load application-specific configuration files
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource(
+          '*',
+          headers: :any,
+          expose: ["Authorization"],
+          methods: [:get, :patch, :put, :delete, :post, :options, :show]
+        )
+      end
+    end
     # Enable multiple databases https://guides.rubyonrails.org/active_record_multiple_databases.html
     # This seems to be mainly for switching to replicas, so commenting out for now.
     # config.active_record.database_selector = { delay: 2.seconds }

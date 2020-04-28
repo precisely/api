@@ -13,6 +13,9 @@ gem 'sqlite3', '~> 1.4'
 # Use postgres as the database for Active Record
 # gem 'pg', '~>1.2'
 
+# Cross origin stuff for auth
+gem 'rack-cors'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,15 +34,20 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-# Gem for enabling Rails API mode for Devise
+# Enable Rails API mode for Devise
 gem 'devise', '~> 4.7'
+# Add token handling
+gem 'devise-jwt', '~> 0.6.0'
+
+# For debugging
+gem 'ruby-debug-ide'
+gem 'debase'
 
 ### application gems
 ### ------------------------------------------------------------------------
 
 gem 'auth0', '~> 4.9.0'
 gem 'jwt', '~> 2.2.1'
-
 
 ### groups
 ### ------------------------------------------------------------------------
