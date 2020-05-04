@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.6.6'
 
 ### system gems
 ### ------------------------------------------------------------------------
@@ -10,6 +10,12 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
+# Use postgres as the database for Active Record
+# gem 'pg', '~>1.2'
+
+# Cross origin stuff for auth
+gem 'rack-cors'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -25,16 +31,14 @@ gem 'puma', '~> 4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
-
-
 ### application gems
 ### ------------------------------------------------------------------------
 
-gem 'auth0', '~> 4.9.0'
-gem 'jwt', '~> 2.2.1'
-
+# Use Devise authentication and JWT token support
+gem 'devise', '~> 4.7'
+# gem 'devise-jwt', '~> 0.6.0'
+gem 'warden-jwt_auth', path: 'vendor/warden-jwt_auth'
+gem 'devise-jwt', path: 'vendor/devise-jwt'
 
 ### groups
 ### ------------------------------------------------------------------------
@@ -42,6 +46,11 @@ gem 'jwt', '~> 2.2.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # For debugging
+  gem 'ruby-debug-ide'
+  gem 'debase'
+
 end
 
 group :development do

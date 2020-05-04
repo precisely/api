@@ -1,25 +1,25 @@
 # SQLite. Versions 3.8.0 and up are supported.
 #   gem install sqlite3
 #
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+#   Ensure the postgres gem is defined in your Gemfile
+#   gem 'pg'
 #
 database_defaults: &database_defaults
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 identity_database_defaults: &identity_database_defaults
   <<: *database_defaults
-  migrations_paths: db/identity_migrate
-
+  
 development:
   identity:
     <<: *identity_database_defaults
-    database: db/development_identity.sqlite3
+    database: development_identity
   default:
     <<: *database_defaults
-    database: db/development_default.sqlite3
+    database: development_default
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,15 +27,17 @@ development:
 test:
   identity:
     <<: *identity_database_defaults
-    database: db/test_identity.sqlite3
+    database: test_identity
+    pool: 1
   default:
     <<: *database_defaults
-    database: db/test_default.sqlite3
+    database: test_default
+    pool: 1
 
 production:
   identity:
     <<: *identity_database_defaults
-    database: db/production_identity.sqlite3
+    database: production_identity
   default:
     <<: *database_defaults
-    database: db/production_default.sqlite3
+    database: production_default

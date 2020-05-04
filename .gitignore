@@ -27,3 +27,9 @@
 # Ignore credentials keys.
 /config/master.key
 /config/credentials/*.key
+.vscode
+
+# ignore external libs (e.g., local gems used during development)
+/vendor
+
+TAG
