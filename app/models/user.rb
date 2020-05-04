@@ -6,8 +6,8 @@ class User < IdentityRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :invitable, :timeoutable and :omniauthable
   devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :lockable, :confirmable, :timeoutable, :trackable,
+         :recoverable, :trackable, :validatable,
+         :lockable, :confirmable, :trackable,
          :jwt_authenticatable, :registerable,
          jwt_revocation_strategy: JwtBlacklist
          
