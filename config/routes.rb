@@ -11,5 +11,14 @@ Rails.application.routes.draw do
     controllers: {
       registrations: 'registrations'
     }
+  
+  scope :endpoints, controller: :endpoints do
+    authenticate :user do
+      get 'private'
+    end
+  
+    get 'public'
+  
+  end
 
 end
