@@ -73,7 +73,7 @@ Devise.setup do |config|
   # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
-  # config.http_authenticatable_on_xhr = true
+  config.http_authenticatable_on_xhr = true
 
   # The realm used in Http Basic Authentication. 'Application' by default.
   # config.http_authentication_realm = 'Application'
@@ -253,6 +253,10 @@ Devise.setup do |config|
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html]
 
+  # This line is suggested by
+  # https://medium.com/@nandhae/2019-how-i-set-up-authentication-with-jwt-in-just-a-few-lines-of-code-with-rails-5-api-devise-9db7d3cee2c0 
+  config.navigational_formats = []
+
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
@@ -296,4 +300,14 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # ==> Devise JWT configuration
+  config.jwt do |jwt|
+    jwt.secret =  Rails.application.credentials.dig(:devise, :jwt_secret)
+    # jwt.dispatch_requests = [['POST', %r{^/login$}]]
+    # jwt.revocation_requests = [['DELETE', %r{^/logout$}]]
+    # jwt.refresh_requests = [['POST', %r{^/refresh}]]
+    jwt.expiration_time = 5.minutes.to_i
+    jwt.refresh_time = 2.weeks.to_i
+  end
 end
