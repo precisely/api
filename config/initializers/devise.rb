@@ -254,7 +254,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # This line is suggested by
-  # https://medium.com/@nandhae/2019-how-i-set-up-authentication-with-jwt-in-just-a-few-lines-of-code-with-rails-5-api-devise-9db7d3cee2c0 
+  # https://medium.com/@nandhae/2019-how-i-set-up-authentication-with-jwt-in-just-a-few-lines-of-code-with-rails-5-api-devise-9db7d3cee2c0
   config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
@@ -308,6 +308,5 @@ Devise.setup do |config|
     # jwt.revocation_requests = [['DELETE', %r{^/logout$}]]
     # jwt.refresh_requests = [['POST', %r{^/refresh}]]
     jwt.expiration_time = 5.minutes.to_i
-    jwt.refresh_time = 2.weeks.to_i
   end
 end
