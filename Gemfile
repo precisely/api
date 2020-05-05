@@ -36,9 +36,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Devise authentication and JWT token support
 gem 'devise', '~> 4.7'
-# gem 'devise-jwt', '~> 0.6.0'
-gem 'warden-jwt_auth', path: 'vendor/warden-jwt_auth'
-gem 'devise-jwt', path: 'vendor/devise-jwt'
+gem 'devise-jwt', '~> 0.6'
 
 ### groups
 ### ------------------------------------------------------------------------
