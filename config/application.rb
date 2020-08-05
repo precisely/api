@@ -36,6 +36,7 @@ module AppBackend
     config.api_only = true
 
     # load application-specific configuration files
+    config.frontend = config_for(:frontend)
     # config.auth0 = config_for(:auth0)
 
     # load application-specific configuration files
@@ -50,7 +51,7 @@ module AppBackend
         )
       end
     end
-    
+
     # To enable multiple databases https://guides.rubyonrails.org/active_record_multiple_databases.html
     # This seems to be mainly for switching to replicas, so commenting out for now.
     # config.active_record.database_selector = { delay: 2.seconds }

@@ -1,0 +1,5 @@
+production:
+  url: https://precise.ly/app
+
+development:
+  url: http://localhost:1234
