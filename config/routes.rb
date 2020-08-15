@@ -16,10 +16,19 @@ Rails.application.routes.draw do
       passwords: 'passwords'
     }
   devise_scope :user do
+    # login
     post 'auth/login' => 'devise/sessions#create', as: 'user_session'
+    # logout
     delete 'auth/logout' => 'devise/sessions#destroy', as: 'destroy_user_session'
-    # patch 'auth/password' => 'passwords#update', as: 'user_password'
+    # ???
+    #patch 'auth/password' => 'passwords#update', as: 'user_password'
+    # make password reset request
+    post '/auth/password' => 'passwords#create', as: nil
+    # reset password using token
+    put '/auth/password' => 'passwords#update', as: nil
+    # signup
     post '/auth/signup' => 'registrations#create', as: nil
+    # confirm signup
     get '/auth/confirmation' => 'devise/confirmations#show', as: 'user_confirmation'
   end
 
