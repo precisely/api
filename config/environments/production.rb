@@ -59,7 +59,7 @@ Rails.application.configure do
     address: "smtp.sendgrid.net",
     port: 587,
     domain: ENV["EMAIL_DOMAIN"],
-    user_name: Rails.application.credentials.dig(:sendgrid, :key, ENV["STAGE"].to_sym),
+    user_name: "apikey",
     password: Rails.application.credentials.dig(:sendgrid, :key, ENV["STAGE"].to_sym),
     authentication: 'plain',
     enable_starttls_auto: true
