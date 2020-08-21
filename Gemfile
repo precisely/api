@@ -8,10 +8,6 @@ ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
-# Use postgres as the database for Active Record
-# gem 'pg', '~>1.2'
 
 # Cross origin stuff for auth
 gem 'rack-cors'
@@ -41,14 +37,20 @@ gem 'devise-jwt', '~> 0.6'
 ### groups
 ### ------------------------------------------------------------------------
 
+group :production do
+  # Use postgres as the database for Active Record
+  gem 'pg', '~>1.2'
+end
+
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   # For debugging
   gem 'ruby-debug-ide'
   gem 'debase'
-
 end
 
 group :development do

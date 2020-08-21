@@ -1,9 +1,3 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 database_defaults: &database_defaults
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -12,6 +6,10 @@ database_defaults: &database_defaults
 identity_database_defaults: &identity_database_defaults
   <<: *database_defaults
   migrations_paths: db/identity_migrate
+
+postgres_defaults: &postgres_defaults
+  adapter: postgresql
+  encoding: unicode
 
 development:
   identity:
@@ -33,9 +31,13 @@ test:
     database: db/test_default.sqlite3
 
 production:
-  identity:
-    <<: *identity_database_defaults
-    database: db/production_identity.sqlite3
   default:
     <<: *database_defaults
-    database: db/production_default.sqlite3
+    <<: *postgres_defaults
+    database: production_default
+    url: <%= ENV[ENV["DB_ENV_VAR_DEFAULT"]] %>
+  identity:
+    <<: *identity_database_defaults
+    <<: *postgres_defaults
+    database: production_identity
+    url: <%= ENV[ENV["DB_ENV_VAR_IDENTITY"]] %>
