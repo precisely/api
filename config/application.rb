@@ -36,7 +36,6 @@ module AppBackend
     config.api_only = true
 
     # load application-specific configuration files
-    config.frontend = config_for(:frontend)
     # config.auth0 = config_for(:auth0)
 
     # load application-specific configuration files
