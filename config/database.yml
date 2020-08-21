@@ -35,9 +35,9 @@ production:
     <<: *database_defaults
     <<: *postgres_defaults
     database: production_default
-    url: <%= ENV[ENV["DB_ENV_VAR_DEFAULT"]] %>
+    url: <%= ENV[ENV["DB_ENV_VAR_DEFAULT"] || ""] %>
   identity:
     <<: *identity_database_defaults
     <<: *postgres_defaults
     database: production_identity
-    url: <%= ENV[ENV["DB_ENV_VAR_IDENTITY"]] %>
+    url: <%= ENV[ENV["DB_ENV_VAR_IDENTITY"] || ""] %>
