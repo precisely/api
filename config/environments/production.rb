@@ -54,6 +54,16 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "app_backend_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    domain: ENV["EMAIL_DOMAIN"],
+    user_name: Rails.application.credentials.dig(:sendgrid, :key_id, ENV["STAGE"].to_sym),
+    password: Rails.application.credentials.dig(:sendgrid, :key, ENV["STAGE"].to_sym),
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
