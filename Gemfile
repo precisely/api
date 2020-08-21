@@ -43,11 +43,11 @@ group :production do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
   # For debugging
   gem 'ruby-debug-ide'
   gem 'debase'

@@ -5,6 +5,10 @@
 # Ignore Direnv configuration, it should be user-specific.
 .envrc
 
+# environment handling: ignore all .env files except .env.sample
+.env*
+!.env.sample
+
 # Ignore bundler config.
 /.bundle
 
