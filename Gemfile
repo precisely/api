@@ -34,6 +34,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.7'
 gem 'devise-jwt', '~> 0.6'
 
+gem 'rails-reverse-proxy'
+
 ### groups
 ### ------------------------------------------------------------------------
 

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   scope :endpoints, controller: :endpoints do
     authenticate :user do
       get 'private'
+      match 'pia/*path' => 'pia#proxy', via: :all
     end
     get 'public'
   end
