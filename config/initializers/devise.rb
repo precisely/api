@@ -307,6 +307,7 @@ Devise.setup do |config|
     # jwt.dispatch_requests = [['POST', %r{^/login$}]]
     # jwt.revocation_requests = [['DELETE', %r{^/logout$}]]
     # jwt.refresh_requests = [['POST', %r{^/refresh}]]
+    # FIXME: THIS EXPIRATION TIME IS HORRIBLE AND MUST BE CHANGED BEFORE RELEASE.
     jwt.expiration_time = 356.days.to_i
   end
 end
